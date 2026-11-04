@@ -76,7 +76,7 @@ namespace alpha::utils {
             }
             else {
                 auto data = arc::getTypename<Base>();
-                ObjectModify::get()->addObjectToModify(std::string(data.first, data.second), Derived::modifyPrio(), [](ModifyCCObject<cocos2d::CCObject>* self) {
+                    ObjectModify::get()->addObjectToModify(std::string(data.data(), data.size()), Derived::modifyPrio(), [](ModifyCCObject<cocos2d::CCObject>* self) {
                     reinterpret_cast<Derived*>(reinterpret_cast<Base*>(self))->modify();
                 });
             }
